@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/form.css" />
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+
+    <title>web||</title>
+  </head>
+  <body>
+    <script>
+      // Embed the response data correctly
+      const response = <%- JSON.stringify(response) %>;
+
+      // Log the response data to the console
+      console.log(response);
+
+      // Handle response status
+      if (response.status >= 300) {
+          alert("Error: " + response.message);
+      }
+    </script>
+    <div class="form-container">
+      <form action="/api/v1/temp/registern" class="reg-form" method="post">
+        <!-- Name -->
+        <div class="formInput">
+          <label for="name">Name: </label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Enter name"
+            required
+          />
+        </div>
+
+        <!-- National ID -->
+        <div class="formInput">
+          <label for="nationalID">National ID: </label>
+          <input
+            type="text"
+            name="nationalID"
+            id="nationalID"
+            placeholder="Enter national ID"
+          />
+        </div>
+
+        <!-- UTIN -->
+        <div class="formInput">
+          <label for="UTIN">UTIN: </label>
+          <input type="text" name="UTIN" id="UTIN" placeholder="Enter UTIN" />
+        </div>
+
+        <!-- TIN -->
+        <div class="formInput">
+          <label for="TIN">TIN: </label>
+          <input
+            type="text"
+            name="TIN"
+            id="TIN"
+            placeholder="Enter TIN"
+            required
+          />
+        </div>
+
+        <!-- Circle Tax Area -->
+        <div class="formInput">
+          <label for="circle">Circle: </label>
+          <input
+            type="text"
+            name="circle"
+            id="circle"
+            placeholder="Enter circle"
+            required
+          />
+        </div>
+
+        <div class="formInput">
+          <label for="taxArea">Tax Area: </label>
+          <input
+            type="text"
+            name="taxArea"
+            id="taxArea"
+            placeholder="Enter tax area"
+            required
+          />
+        </div>
+
+        <!-- Assessment Year -->
+        <div class="formInput">
+          <label for="assessmentYear">Assessment Year: </label>
+          <input
+            type="text"
+            name="assessmentYear"
+            id="assessmentYear"
+            placeholder="Enter assessment year"
+            required
+          />
+        </div>
+
+        <!-- Residential Status -->
+        <div class="formInput">
+          <label for="residentialStatus">Residential Status: </label>
+          <select name="residentialStatus" id="residentialStatus" required>
+            <option value="resident">Resident</option>
+            <option value="non-resident">Non-Resident</option>
+          </select>
+        </div>
+
+        <!-- Taxpayer's Status -->
+        <div class="formInput">
+          <label for="taxpayersStatus">Taxpayer's Status: </label>
+          <select name="taxpayersStatus" id="taxpayersStatus" required>
+            <option value="Individual">Individual</option>
+            <option value="Firm">Firm</option>
+            <option value="Association of individuals">
+              Association of Individuals
+            </option>
+            <option value="hinduUndividedFamily">Hindu Undivided Family</option>
+          </select>
+        </div>
+
+        <!-- Employer's Name -->
+        <div class="formInput">
+          <label for="employersName">Employer's Name: </label>
+          <input
+            type="text"
+            name="employersName"
+            id="employersName"
+            placeholder="Enter employer's name"
+          />
+        </div>
+
+        <!-- Wife or Husband Name -->
+        <div class="formInput">
+          <label for="wifeOrHusbandName">Spouse Name: </label>
+          <input
+            type="text"
+            name="wifeOrHusbandName"
+            id="wifeOrHusbandName"
+            placeholder="Enter spouse's name"
+          />
+        </div>
+
+        <div class="formInput">
+          <label for="spouseTIN">Spouse TIN: </label>
+          <input
+            type="text"
+            name="spouseTIN"
+            id="spouseTIN"
+            placeholder="Enter spouse's TIN"
+          />
+        </div>
+
+        <!-- Father's Name -->
+        <div class="formInput">
+          <label for="fathersName">Father's Name: </label>
+          <input
+            type="text"
+            name="fathersName"
+            id="fathersName"
+            placeholder="Enter father's name"
+            required
+          />
+        </div>
+
+        <!-- Mother's Name -->
+        <div class="formInput">
+          <label for="mothersName">Mother's Name: </label>
+          <input
+            type="text"
+            name="mothersName"
+            id="mothersName"
+            placeholder="Enter mother's name"
+            required
+          />
+        </div>
+
+        <!-- Date of Birth -->
+        <div class="formInput">
+          <label for="dateOfBirth">Date of Birth: </label>
+          <input type="date" name="dateOfBirth" id="dateOfBirth" required />
+        </div>
+
+        <!-- Address -->
+        <div class="formInput">
+          <label for="currentAddress">Current Address: </label>
+          <input
+            type="text"
+            name="currentAddress"
+            id="currentAddress"
+            placeholder="Enter current address"
+            required
+          />
+        </div>
+
+        <div class="formInput">
+          <label for="permanentAddress">Permanent Address: </label>
+          <input
+            type="text"
+            name="permanentAddress"
+            id="permanentAddress"
+            placeholder="Enter permanent address"
+            required
+          />
+        </div>
+
+        <!-- Contact -->
+        <div class="formInput">
+          <label for="officeContact">Office Contact: </label>
+          <input
+            type="text"
+            name="officeContact"
+            id="officeContact"
+            placeholder="Enter office contact"
+            required
+          />
+        </div>
+
+        <div class="formInput">
+          <label for="homeContact">Home Contact: </label>
+          <input
+            type="text"
+            name="homeContact"
+            id="homeContact"
+            placeholder="Enter home contact"
+            required
+          />
+        </div>
+
+        <div class="formInput">
+          <label for="email">Email: </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Enter email"
+            required
+          />
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-outline-dark w-50 m-3">
+          Register
+        </button>
+      </form>
+    </div>
+
+    <script src="/js/bootstrap.bundle.js"></script>
+  </body>
+</html>

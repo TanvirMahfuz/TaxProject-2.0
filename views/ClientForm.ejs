@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/form.css" />
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+
+    <title>web||</title>
+  </head>
+  <body style="background-color: rgba(80, 32, 80, 0.497)">
+    <script>
+      // Embed the response data correctly
+      const response = <%- JSON.stringify(response) %>;
+
+      // Log the response data to the console
+      console.log(response);
+
+      // Handle response status
+      if (response.status >= 300) {
+          alert("Error: " + response.message);
+      }
+    </script>
+
+    <div class="form-container">
+      <form action="/api/v1/form/register" class="reg-form" method="post">
+        <div class="formInput">
+          <label for="name">Name: </label>
+          <input type="text" name="name" id="name" placeholder="Enter name" />
+        </div>
+        <div class="formInput">
+          <label for="email">email: </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Enter email"
+          />
+        </div>
+        <button type="submit" class="btn btn-outline-dark w-50 m-3">
+          Register
+        </button>
+      </form>
+    </div>
+    <script src="/js/bootstrap.bundle.js"></script>
+  </body>
+</html>

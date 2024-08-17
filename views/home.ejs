@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <title>web||</title>
+  </head>
+  <body>
+    <script>
+      // Embed the response data correctly
+      const response = <%- JSON.stringify(response) %>;
+
+      // Log the response data to the console
+      console.log(response);
+
+      // Handle response status
+      if (response.status !== 200) {
+          alert("Error: " + response.message);
+      }
+    </script>
+    <%- include("./partials/nav.ejs") %>
+
+    <div class="title"><h1>Search for clients</h1></div>
+    <div style="width: 100%; display: flex; justify-content: center">
+      <a href="/api/v1/form/userForm" class="btn btn-outline-dark"
+        >Create New User</a
+      >
+    </div>
+
+    <div class="search-box">
+      <form
+        action="/api/v1/home/getClient"
+        class="d-flex flex-column justify-content-around align-items-center p-3 w-100 rounded-3 border-3 border-dark"
+        method="post"
+      >
+        <input
+          type="text"
+          name="search"
+          id="search"
+          class="input-field"
+          placeholder="Enter Client name"
+        />
+        <button
+          type="submit"
+          class="btn btn-dark m-3 fs-5"
+          style="height: 50px; width: 30%"
+        >
+          Search
+        </button>
+      </form>
+    </div>
+
+    <script src="/js/bootstrap.bundle.js"></script>
+  </body>
+</html>
