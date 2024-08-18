@@ -3,32 +3,277 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/form.css" />
+    <link rel="stylesheet" href="/css/form2.css" />
     <link rel="stylesheet" href="/css/bootstrap.css" />
-
     <title>web||</title>
   </head>
-  <body style="background-color: rgba(80, 32, 80, 0.497)">
+  <body>
     <div class="form-container">
-      <form action="/api/v1/form/register" class="reg-form" method="post">
+      <form class="reg-form" id="form">
         <div class="formInput">
-          <label for="name">Name: </label>
-          <input type="text" name="name" id="name" placeholder="Enter name" />
-        </div>
-        <div class="formInput">
-          <label for="email">email: </label>
+          <label for="name">Name</label>
           <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Enter email"
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Enter name"
+            required
           />
         </div>
-        <button type="submit" class="btn btn-outline-dark w-50 m-3">
-          Register
-        </button>
+        <div class="formInput">
+          <label for="nationalID">Name</label>
+          <input
+            type="text"
+            name="nationalID"
+            id="nationalID"
+            placeholder="Enter nationalID"
+          />
+        </div>
+        <div class="formInput">
+          <label for="UTIN">UTIN</label>
+          <input type="text" name="UTIN" id="UTIN" placeholder="Enter UTIN" />
+        </div>
+        <div class="formInput">
+          <label for="TIN">TIN</label>
+          <input
+            type="text"
+            name="TIN"
+            id="TIN"
+            placeholder="Enter TIN"
+            required
+          />
+        </div>
+        <div class="divider d-flex align-items-center justify-content-around">
+          <div class="formInput w-50 ms-4 me-4">
+            <label for="circle">Circle</label>
+            <input
+              type="text"
+              name="circle"
+              id="circle"
+              placeholder="Enter circle"
+              required
+            />
+          </div>
+          <div class="formInput w-50 ms-4 me-4">
+            <label for="taxArea">Tax Area</label>
+            <input
+              type="text"
+              name="taxArea"
+              id="taxArea"
+              placeholder="Enter tax area"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="formInput">
+          <label for="assessmentYear">Assessment Year</label>
+          <input
+            type="text"
+            name="assessmentYear"
+            id="assessmentYear"
+            placeholder="Enter assessment year"
+            required
+          />
+        </div>
+
+        <!-- Residential Status Checkboxes -->
+        <div class="checkbox d-flex align-items-center w-100 mt-3 mb-3 p-2">
+          <label>Residential Status</label>
+          <div class="form-check d-flex justify-content-end" style="width: 30%">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="residentialStatus"
+              id="flexRadioDefault1"
+              value="Resident"
+              required
+            />
+            <label class="form-check-label" for="flexRadioDefault1">
+              Resident
+            </label>
+          </div>
+
+          <div class="form-check d-flex justify-content-end" style="width: 30%">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="residentialStatus"
+              id="flexRadioDefault2"
+              value="Non-resident"
+              required
+            />
+            <label class="form-check-label" for="flexRadioDefault2">
+              Non-resident
+            </label>
+          </div>
+        </div>
+
+        <!-- Taxpayer's Status Checkboxes -->
+        <div class="checkbox d-flex align-items-center w-100 mt-3 mb-3 p-2">
+          <label>Taxpayer's Status</label>
+          <div class="form-check d-flex ms-3" style="width: 20%">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="taxpayersStatus"
+              id="individual"
+              value="Individual"
+              required
+            />
+            <label class="form-check-label" for="individual">Individual</label>
+          </div>
+          <div class="form-check d-flex ms-3" style="width: 20%">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="taxpayersStatus"
+              id="firm"
+              value="Firm"
+              required
+            />
+            <label for="firm">Firm</label>
+          </div>
+          <div class="form-check d-flex ms-3" style="width: 20%">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="taxpayersStatus"
+              id="association"
+              value="Association of Individuals"
+              required
+            />
+            <label for="association">Association of Individuals</label>
+          </div>
+          <div class="form-check d-flex ms-3" style="width: 20%">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="taxpayersStatus"
+              id="hinduUndividedFamily"
+              value="Hindu Undivided Family"
+              required
+            />
+            <label for="hinduUndividedFamily">Hindu Undivided Family</label>
+          </div>
+        </div>
+
+        <div class="formInput">
+          <label for="employersName">Employer's Name</label>
+          <input
+            type="text"
+            name="employersName"
+            id="employersName"
+            placeholder="Enter employer's name"
+          />
+        </div>
+        <div class="formInput">
+          <label for="spouseName">Spouse Name</label>
+          <input
+            type="text"
+            name="spouseName"
+            id="spouseName"
+            placeholder="Enter spouseName's name"
+          />
+        </div>
+        <div class="formInput">
+          <label for="spouseTIN">Spouse TIN</label>
+          <input
+            type="text"
+            name="spouseTIN"
+            id="spouseTIN"
+            placeholder="Enter spouse's TIN"
+          />
+        </div>
+        <div class="formInput">
+          <label for="fathersName">Father's Name</label>
+          <input
+            type="text"
+            name="fathersName"
+            id="fathersName"
+            placeholder="Enter father's name"
+            required
+          />
+        </div>
+        <div class="formInput">
+          <label for="mothersName">Mother's Name</label>
+          <input
+            type="text"
+            name="mothersName"
+            id="mothersName"
+            placeholder="Enter mother's name"
+            required
+          />
+        </div>
+        <div class="formInput">
+          <label for="dateOfBirth">Date of Birth</label>
+          <input type="date" name="dateOfBirth" required id="dateOfBirth" />
+        </div>
+        <div class="formInput">
+          <label for="currentAddress">Current Address</label>
+          <input
+            type="text"
+            name="currentAddress"
+            id="currentAddress"
+            placeholder="Enter current address"
+            required
+          />
+        </div>
+        <div class="formInput">
+          <label for="permanentAddress">Permanent Address</label>
+          <input
+            type="text"
+            name="permanentAddress"
+            id="permanentAddress"
+            placeholder="Enter permanent address"
+            required
+          />
+        </div>
+
+        <div class="divider d-flex align-items-center justify-content-around">
+          <div class="formInput ms-2 me-2" style="width: 33%">
+            <label for="officeContact">Office Contact</label>
+            <input
+              type="text"
+              name="officeContact"
+              id="officeContact"
+              placeholder="Enter office contact"
+              required
+            />
+          </div>
+          <div class="formInput ms-2 me-2" style="width: 33%">
+            <label for="homeContact">Home Contact</label>
+            <input
+              type="text"
+              name="homeContact"
+              id="homeContact"
+              placeholder="Enter home contact"
+              required
+            />
+          </div>
+          <div class="formInput ms-2 me-2" style="width: 33%">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Enter email"
+            />
+          </div>
+        </div>
+        <!-- Submit Button -->
+        <div class="button-container d-flex justify-content-center">
+          <button
+            type="submit"
+            class="btn btn-outline-dark w-50 m-3"
+            id="submitButton"
+          >
+            Register
+          </button>
+        </div>
       </form>
     </div>
     <script src="/js/bootstrap.bundle.js"></script>
+    <script src="/js/clientForm.js"></script>
   </body>
 </html>

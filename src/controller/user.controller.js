@@ -3,36 +3,33 @@ const User = require("../models/user.model.js");
 
 const createUser = async (user) => {
   try {
-    const obj = {
-      email: user.email,
-      firstName: user.name,
-    };
-    const newUser = new User(obj);
-    console.log("savedUser: ", newUser);
+    const newUser = new User(user);
+    if (!newUser) {
+      return "could not save user";
+    }
     const savedUser = await newUser.save();
-
     return savedUser;
   } catch (err) {
-    return null;
+    return err.message;
   }
 };
 const getAllUsers = async (req, res) => {
   try {
     const users = await User.find();
-    res.json(users);
+    return users;
   } catch (err) {
-    res.status(500).json({message: err.message});
+    return null;
   }
 };
-const getUser = async (req, res) => {
+const getUserById = async (id) => {
   try {
-    const user = await User.findById(req.params.id);
-    if (!user) {
+    const user = await User.findById(id);
+    if (user == null) {
       return res.status(404).json({message: "User not found"});
     }
-    res.json(user);
+    return user;
   } catch (err) {
-    res.status(500).json({message: err.message});
+    return null;
   }
 };
 const updateUser = async (req, res) => {
@@ -62,7 +59,7 @@ const deleteUser = async (req, res) => {
 module.exports = {
   createUser,
   getAllUsers,
-  getUser,
+  getUserById,
   updateUser,
   deleteUser,
 };
