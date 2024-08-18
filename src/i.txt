@@ -1,0 +1,30 @@
+<div class="form-container">
+      <form action="/api/v1/temp/register" class="reg-form" method="post">
+        
+        <% fields.forEach(field => { %>
+          <div class="formInput">
+            <label for="<%= field.name %>"><%= field.label %>: </label>
+            <% if (field.type === 'select') { %>
+              <select name="<%= field.name %>" id="<%= field.name %>" <%= field.required ? 'required' : '' %>>
+                <% field.options.forEach(option => { %>
+                  <option value="<%= option %>"><%= option %></option>
+                <% }) %>
+              </select>
+            <% } else { %>
+              <input
+                type="<%= field.type %>"
+                name="<%= field.name %>"
+                id="<%= field.name %>"
+                placeholder="Enter <%= field.label.toLowerCase() %>"
+                <%= field.required ? 'required' : '' %>
+              />
+            <% } %>
+          </div>
+        <% }) %>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-outline-dark w-50 m-3">
+          Register
+        </button>
+      </form>
+    </div>

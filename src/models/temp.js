@@ -1,3 +1,4 @@
+"use strict";
 obj = {
   name: {
     type: String,
@@ -33,7 +34,7 @@ obj = {
     required: true,
   },
   taxpayersStatus: {
-    type: string,
+    type: String,
     enum: [
       "Individual",
       "Firm",

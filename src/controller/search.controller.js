@@ -4,8 +4,9 @@ const search = async (req, res) => {
     const results = await User.find({name: {$regex: name, $options: "i"}});
     return res.json(results);
   } catch (err) {
-    return res.render("home", {
-      response: {status: 404, message: "user not found"},
+    return res.status(404).json({
+      status: "error",
+      message: "user not found",
     });
   }
 };

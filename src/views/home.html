@@ -8,20 +8,6 @@
     <title>web||</title>
   </head>
   <body>
-    <script>
-      // Embed the response data correctly
-      const response = <%- JSON.stringify(response) %>;
-
-      // Log the response data to the console
-      console.log(response);
-
-      // Handle response status
-      if (response.status !== 200) {
-          alert("Error: " + response.message);
-      }
-    </script>
-    <%- include("./partials/nav.ejs") %>
-
     <div class="title"><h1>Search for clients</h1></div>
     <div style="width: 100%; display: flex; justify-content: center">
       <a href="/api/v1/form/userForm" class="btn btn-outline-dark"
