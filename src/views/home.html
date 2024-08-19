@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link rel="stylesheet" href="/css/home.css" />
     <link rel="stylesheet" href="/css/bootstrap.css" />
     <title>web||</title>
@@ -10,9 +11,7 @@
   <body>
     <div class="title"><h1>Search for clients</h1></div>
     <div style="width: 100%; display: flex; justify-content: center">
-      <a href="/api/v1/form/userForm" class="btn btn-outline-dark"
-        >Create New User</a
-      >
+      <a href="/api/v1/form/" class="btn btn-outline-dark">New Client</a>
     </div>
 
     <div class="search-box">
@@ -30,18 +29,27 @@
         />
         <button
           type="submit"
-          class="btn btn-dark m-3 fs-5"
+          class="btn btn-dark m-3 fs-5 search-btn d-flex justify-content-center"
           style="height: 50px; width: 30%"
         >
-          Search
+          <p>Search</p>
+          <i class="bi bi-search"></i>
         </button>
       </form>
     </div>
-    <div class="container">
+    <div class="container" id="data-table">
       <div class="row">
-        <div class="col-4"><h3>sl</h3></div>
-        <div class="col-4"><h3>name</h3></div>
-        <div class="col-4"><h3>link</h3></div>
+        <div
+          class="headings col-12 d-flex justify-content-center align-items-center"
+        >
+          <div class="col-1"><h4>sl</h4></div>
+          <div class="col-9">
+            <h3>Client</h3>
+          </div>
+          <div class="col-2">
+            <h4>profile</h4>
+          </div>
+        </div>
       </div>
     </div>
     <script src="/js/bootstrap.bundle.js"></script>
