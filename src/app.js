@@ -16,4 +16,6 @@ app.use("/api/v1/home", homeRouter);
 const formRouter = require("./routers/form.router.js");
 app.use("/api/v1/form", formRouter);
 
+const clientROuter = require("./routers/clientProfile.router.js");
+app.use("/api/v1/clientProfile", clientROuter);
 module.exports = app;

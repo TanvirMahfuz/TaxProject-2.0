@@ -16,6 +16,7 @@ const createUser = async (user) => {
 const getAllUsers = async (req, res) => {
   try {
     const users = await User.find();
+
     return users;
   } catch (err) {
     return null;
@@ -32,15 +33,27 @@ const getUserById = async (id) => {
     return null;
   }
 };
-const updateUser = async (req, res) => {
+const getUserByName = async (name) => {
   try {
-    const user = await User.findByIdAndUpdate(req.params.id, req.body, {
+    const user = await User.findOne({name: {$regex: new RegExp(name, "i")}});
+    if (user == null) {
+      return res.status(404).json({message: "User not found"});
+    }
+    return user;
+  } catch (err) {
+    return null;
+  }
+};
+const updateUser = async (data) => {
+  console.log("updateUser : ", data);
+  try {
+    const user = await User.findByIdAndUpdate(data.id, data, {
       new: true,
     });
     if (!user) {
-      return res.status(404).json({message: "User not found"});
+      return null;
     }
-    res.json(user);
+    return user;
   } catch (err) {
     res.status(400).json({message: err.message});
   }
@@ -60,6 +73,7 @@ module.exports = {
   createUser,
   getAllUsers,
   getUserById,
+  getUserByName,
   updateUser,
   deleteUser,
 };

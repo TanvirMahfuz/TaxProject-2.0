@@ -7,4 +7,5 @@ const {search, searchAll} = require("../controller/search.controller.js");
 router.route("/getClient").post(search);
 
 router.route("/getClientList").get(searchAll);
+
 module.exports = router;

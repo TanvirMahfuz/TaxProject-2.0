@@ -36,8 +36,6 @@ function createUserModel(req) {
   } catch (error) {
     return null;
   }
-
-  return user;
 }
 const register = async (req, res) => {
   try {

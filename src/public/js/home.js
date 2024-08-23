@@ -54,9 +54,29 @@ function getClientProfile(id) {
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
-      // if (data.success) {
-      //   window.location.href = "/api/v1/home/getClientList" + data.data.name;
-      // }
     })
     .catch((error) => console.log(error));
 }
+const searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const searchInput = document.querySelector("#search");
+  const searchValue = searchInput.value.toLowerCase().trim();
+  if (searchValue == "") {
+    search.style =
+      "background-color: rgba(255, 0, 0, 0.2);border: 1px solid rgba(255, 0, 0, 0.5)";
+  } else {
+    fetch("/api/v1/home/getClient", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({name: searchValue}),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        window.location.href = "/api/v1/clientProfile";
+      })
+      .catch((error) => console.log(error));
+  }
+});
