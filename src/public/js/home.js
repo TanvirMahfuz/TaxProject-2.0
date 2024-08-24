@@ -13,7 +13,9 @@ function createRow(data) {
           </div>
 
         </div>
-        <div class="col-2"><button class ="btn" id="view">view profile</button></div>
+        <div class="col-2"><button class ="btn" id="view" onClick="routeToProfile('${
+          data._id
+        }')">view profile</button></div>
       </div>
   </div> </div>`;
 }
@@ -80,3 +82,21 @@ searchForm.addEventListener("submit", (e) => {
       .catch((error) => console.log(error));
   }
 });
+function routeToProfile(dd) {
+  fetch("/api/v1/home/client-profile", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({id: dd}),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.success) {
+        window.location.href = "/api/v1/clientProfile";
+      } else {
+        document.body.innerHTML = `<h1>404 not found</h1>`;
+      }
+    })
+    .catch((error) => console.log(error));
+}

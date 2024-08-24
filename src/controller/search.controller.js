@@ -1,4 +1,8 @@
-const {getUserByName, getAllUsers} = require("./user.controller.js");
+const {
+  getUserByName,
+  getAllUsers,
+  getUserById,
+} = require("./user.controller.js");
 const path = require("path");
 let tempUser = null;
 
@@ -18,7 +22,6 @@ const search = async (req, res) => {
 const searchCurrentUser = async (req, res) => {
   try {
     user = tempUser;
-
     if (tempUser == null) return res.status(404).json({msg: "user not found"});
     return res.json({success: true, data: user});
   } catch (err) {
@@ -39,4 +42,11 @@ const searchAll = async (req, res) => {
   }
 };
 
-module.exports = {search, searchAll, searchCurrentUser};
+const searchOne = async (req, res) => {
+  const user = await getUserById(req.body.id);
+  tempUser = user;
+  console.log(tempUser);
+  return res.status(200).json({success: true});
+};
+
+module.exports = {search, searchAll, searchCurrentUser, searchOne};
